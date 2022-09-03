@@ -4,11 +4,13 @@ import './CartFoods.css';
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 const CartFoods = ({ cart, removeFromCart }) => {
     return (
-        <div className='added-cart'>
-            <img src={cart?.img} alt="" />
-            <h4>{cart?.name}</h4>
-            <p>${cart?.price}</p>
-            <button onClick={() => removeFromCart(cart)}>{<FontAwesomeIcon icon={faTrash} />}</button>
+        <div className='display-cart'>
+            <div className='added-cart'>
+                <img src={cart?.img} alt="" />
+                <h4>{cart?.name.slice(0, 10)}...</h4>
+                <p>${cart?.price}</p>
+                <button onClick={() => removeFromCart(cart)}>{<FontAwesomeIcon icon={faTrash} />}</button>
+            </div>
         </div>
     );
 };

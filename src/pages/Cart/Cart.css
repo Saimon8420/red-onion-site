@@ -1,8 +1,14 @@
 .display-cart {
     font-family: 'Courier New', Courier, monospace;
     margin: 0 auto;
+    width: 100%;
 }
 
 .display-cart p {
+    font-weight: bold;
+}
+
+.display-cart h2 {
+    margin-top: 10px;
     font-weight: bold;
 }
