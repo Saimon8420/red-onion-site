@@ -1,0 +1,72 @@
+.meal-display {
+    padding: 5px;
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    justify-items: center;
+}
+
+.meal-display:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.meal-display img {
+    height: 300px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.meal-display p {
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.meal-display h4 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    font-weight: bold;
+}
+
+.meal-display button {
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    right: 0;
+    left: 0;
+}
+
+.meal-display button:hover {
+    background-color: rgb(231, 14, 14);
+    color: white;
+}
+
+@media only screen and (max-width:576px) {
+    .meal-display img {
+        height: 150px;
+        width: 100%;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (min-width:577px) and (max-width:960px) {
+    .meal-display img {
+        height: 200px;
+        width: 100%;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (min-width:961px) and (max-width:1600px) {
+    .meal-display img {
+        height: 250px;
+        width: 100%;
+        border-radius: 10px;
+    }
+}
