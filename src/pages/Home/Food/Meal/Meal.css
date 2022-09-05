@@ -1,7 +1,7 @@
 .meal-display {
     padding: 5px;
     border-radius: 10px;
-    position: relative;
+    /* position: absolute; */
     width: 100%;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -30,19 +30,21 @@
     font-weight: bold;
 }
 
-.meal-display button {
+.meal-display-btn {
+    position: static;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.meal-display-btn button {
     background-color: orange;
     border: none;
     border-radius: 5px;
     padding: 5px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    right: 0;
-    left: 0;
 }
 
-.meal-display button:hover {
+.meal-display-btn button:hover {
     background-color: rgb(231, 14, 14);
     color: white;
 }

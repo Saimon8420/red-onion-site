@@ -5,4 +5,15 @@
     margin-top: 10px;
     padding: 20px;
     background-color: antiquewhite;
+    position: static;
+}
+
+@media only screen and (max-width:576px) {
+    .food-display {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 10px;
+        padding: 20px;
+    }
 }

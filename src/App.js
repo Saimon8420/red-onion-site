@@ -17,39 +17,45 @@ function App() {
   return (
     <CartContext.Provider value={[cartItem, setCartItem]}>
       <div className='display'>
+
         <div className='header-display'>
           <Header />
         </div>
-        <Routes>
-          <Route path='/login' element={<Login />}
-          ></Route>
 
-          <Route path='/signup' element={<Signup />}
-          ></Route>
-
-          <Route path='/' element={<Home />}>
-            {/* <Route path=':idFood' element={<Food />}
-          ></Route> */}
-          </Route>
-
-          <Route path='/home' element={<Home />}>
-            <Route path=':idFood' element={<Food />}
+        <div className='route-display'>
+          <Routes>
+            <Route path='/login' element={<Login />}
             ></Route>
-          </Route>
 
-          <Route path='/cart' element={
-            <RequireAuth>
-              <Cart />
-            </RequireAuth>
-          }
-          ></Route>
+            <Route path='/signup' element={<Signup />}
+            ></Route>
 
-          <Route path='*' element={<NotFound />}></Route>
+            <Route path='/' element={<Home />}>
+              {/* <Route path=':idFood' element={<Food />}
+          ></Route> */}
+            </Route>
 
-        </Routes>
+            <Route path='/home' element={<Home />}>
+              <Route path=':idFood' element={<Food />}
+              ></Route>
+            </Route>
+
+            <Route path='/cart' element={
+              <RequireAuth>
+                <Cart />
+              </RequireAuth>
+            }
+            ></Route>
+
+            <Route path='*' element={<NotFound />}></Route>
+
+          </Routes>
+        </div>
+
         <div className='footer-display'>
           <Footer />
         </div>
+
       </div>
     </CartContext.Provider>
   );
