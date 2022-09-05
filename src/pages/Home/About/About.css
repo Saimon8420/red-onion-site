@@ -17,6 +17,9 @@ hr {
 }
 
 .display-about p {
+    display: block;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
     font-family: monospace;
     font-weight: 500;
 }

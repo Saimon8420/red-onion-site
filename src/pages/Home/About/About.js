@@ -10,9 +10,7 @@ const About = () => {
         <div className='about'>
             <div className='display-about'>
                 <h3>Why you choose us</h3>
-                <hr />
                 <p>We provide hygienic and testy foods. Our motto is to satisfied our beloved customer. Besides all these, we have nice and environment friendly dining facilities, as well as home delivery at minimum time and with minimum delivery cost.</p>
-                <hr />
             </div>
             <div className='display-facilities'>
                 <div className="facilities">

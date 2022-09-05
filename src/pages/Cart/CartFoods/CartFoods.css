@@ -31,6 +31,8 @@
     background-color: whitesmoke;
     margin: auto;
     border-radius: 5px;
+    color: red;
+    font-weight: bold;
 }
 
 .added-cart img {

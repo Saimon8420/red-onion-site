@@ -15,16 +15,14 @@ const Cart = () => {
         setCartItem(restCart);
     }
     return (
-        <div className='display-cart'>
+        <div className='display-cart1'>
             <h2>Total Food:{cartItem.length}</h2>
-            <hr />
             {cartItem.map(cart => <CartFoods
                 key={cart.id}
                 cart={cart}
                 removeFromCart={removeFromCart}
             ></CartFoods>)}
-            <hr />
-            <p>Total Price: ${totalPrice}</p>
+            <h3>Total Price: ${totalPrice}</h3>
         </div>
     );
 };
