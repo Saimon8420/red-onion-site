@@ -17,8 +17,9 @@ function App() {
   return (
     <CartContext.Provider value={[cartItem, setCartItem]}>
       <div className='display'>
-        <Header />
-
+        <div className='header-display'>
+          <Header />
+        </div>
         <Routes>
           <Route path='/login' element={<Login />}
           ></Route>

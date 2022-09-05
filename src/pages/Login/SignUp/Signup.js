@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-import google_logo from '../../../images/google_logo.png';
+import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import logo from '../../../images/logo.png';
 const Signup = () => {
@@ -17,7 +16,6 @@ const Signup = () => {
     const [checkPass, setCheckPass] = useState(true);
 
     let errorElement;
-    let googleErrorElement;
     let errorElement2;
 
     const navigate = useNavigate();
@@ -53,7 +51,8 @@ const Signup = () => {
             'background-color': 'red',
             width: '50%',
             'border-radius': '5px',
-            margin: '10px auto'
+            margin: '10px auto',
+            display: 'block'
         }}>{error?.message}</p>
     }
     if (updateError) {
@@ -62,7 +61,8 @@ const Signup = () => {
             'background-color': 'red',
             width: '50%',
             'border-radius': '5px',
-            margin: '10px auto'
+            margin: '10px auto',
+            display: 'block'
         }}> {updateError?.message}</p>
     }
 
@@ -72,13 +72,22 @@ const Signup = () => {
             'background-color': 'red',
             width: '50%',
             'border-radius': '5px',
-            margin: '10px auto'
+            margin: '10px auto',
+            display: 'block'
         }}>Password doesn't match</p>;
     }
+
+    if (loading) {
+        return <p>Wait for Sign up....</p>
+    }
+    if (updating) {
+        return <p>Updating...</p>
+    }
+
     return (
         <div className='login-display'>
             <img src={logo} alt="" />
-            <h2>Please Sign-Up</h2>
+            <h4>Please Sign-Up</h4>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name">User name</label>
                 <input className='input-display' type="text" name="name" placeholder='Enter name' id="" ref={nameRef} required />
@@ -93,7 +102,7 @@ const Signup = () => {
                 <input className='input-display' type="password" name="confirm-password" placeholder='Re-enter password' id="confirm-password" ref={ConfirmPasswordRef} required />
                 <br />
                 {errorElement2}
-                <button type="submit">Sign-up</button>
+                <button className='login-btn' type="submit">Sign-up</button>
             </form>
             {errorElement}
             <div>

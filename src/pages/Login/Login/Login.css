@@ -9,34 +9,62 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
+.login-display h4 {
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgb(89, 99, 243);
+    width: 50%;
+    margin: 10px auto;
+    padding: 5px 0px;
+    color: white;
+}
+
 .login-display img {
     height: 50px;
     width: 50%;
     margin-bottom: 10px;
 }
 
-.login-display button {
+.login-btn {
     display: flex;
     align-items: center;
     margin: 0 auto;
     gap: 5px;
     border-radius: 5px;
     border: none;
-    padding: 10px;
+    padding: 5px;
     background-color: white;
     color: blue;
     font-weight: bold;
 }
 
-.login-display button:hover {
+.forget-btn {
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-decoration: underline;
+}
+
+.forget-btn:hover {
+    color: red;
+}
+
+.login-btn:hover {
     color: black;
     cursor: pointer;
     background-color: rgb(168, 165, 165);
 }
 
-.login-display button img {
-    width: 30px;
-    height: 20px;
+.login-btn,
+p {
+    display: inline;
+}
+
+.login-btn img {
+    width: 20px;
+    height: fit-content;
+    margin: auto 0;
 }
 
 .input-display {

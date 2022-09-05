@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Login.css';
 import google_logo from '../../../images/google_logo.png';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import logo from '../../../images/logo.png';
 const Login = () => {
@@ -14,6 +14,8 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     const [signInWithGoogle, userGoogle, loadingGoogle, errorGoogle] = useSignInWithGoogle(auth);
+
+    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -28,7 +30,7 @@ const Login = () => {
     if (userGoogle) {
         navigate('/home');
     }
-    const emailRef = useRef('');
+    let emailRef = useRef('');
     const passwordRef = useRef('');
 
     let errorElementGoogle;
@@ -40,6 +42,19 @@ const Login = () => {
         const password = passwordRef.current.value;
         signInWithEmailAndPassword(email, password)
     }
+
+    const handlePasswordReset = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            alert('Check you email, for reset your password');
+            await sendPasswordResetEmail(email);
+        }
+        else {
+            alert('Enter your email on email input field, then click submit')
+        }
+        document.getElementById('input-id').value = '';
+    }
+
     if (errorGoogle) {
         errorElementGoogle = <p style={{ 'background-color': 'red', color: 'white' }}> {errorGoogle?.message}</p>
     }
@@ -49,27 +64,33 @@ const Login = () => {
     return (
         <div className='login-display'>
             <img src={logo} alt="" />
-            <h2>Please login</h2>
+            <h4>Please login</h4>
             <form onSubmit={handleSubmit}>
                 <label className='label-display' htmlFor="email"><p>Email</p> </label>
-                <input className='input-display' type="email" name="email" placeholder='Enter email' id="" ref={emailRef} required />
+                <input className='input-display' type="email" name="email" placeholder='Enter email' id="input-id" ref={emailRef} required />
                 <br />
                 <label className='label-display' htmlFor="password">
                     <p>Password</p>
                 </label>
                 <input className='input-display' type="password" name="password" placeholder='Enter password' id="password" required ref={passwordRef} />
                 <br />
-                <button type="submit">Login</button>
+                <button className='login-btn' type="submit">Login</button>
             </form>
             {errorElement}
+
+            <button onClick={handlePasswordReset} className='forget-btn'>Forget Password?</button>
+
             <div>
                 <hr />
                 <p style={{ 'font-weight': 'bold' }}>or</p>
             </div>
-            <button onClick={() => signInWithGoogle()}><img src={google_logo} alt="" /> Login with Google</button>
+            <button className='login-btn' onClick={() => signInWithGoogle()}><img src={google_logo} alt="" /><p> Login with Google</p></button>
             {errorElementGoogle}
             <br />
-            <div style={{ 'text-align': 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <br />
+            <div style={{
+                'text-align': 'center', display: 'flex', alignItems: 'center', justifyContent: 'center'
+            }}>
                 <input onChange={navigateRegister} type="checkbox" name="login" id="" />
                 <label htmlFor="login">Haven't any account? Then Sing-up</label>
             </div>

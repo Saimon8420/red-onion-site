@@ -9,11 +9,15 @@ import auth from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
 import { CartContext } from '../../../App';
 const Header = () => {
-    const [user] = useAuthState(auth);
+    const CurrentUser = () => {
+        const [user, loading] = useAuthState(auth);
+        return user;
+    }
     const logout = () => {
         signOut(auth);
     }
     const [cartItem] = useContext(CartContext);
+    const user = CurrentUser();
     return (
         <div className='header-container'>
             <Link to='/'><img src={logo2} alt="" /></Link>
