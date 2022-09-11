@@ -5,6 +5,7 @@ import './About.css';
 import facilities1 from '../../../images/facilities1.png';
 import facilities2 from '../../../images/facilities2.png';
 import facilities3 from '../../../images/facilities3.png';
+import { Helmet } from 'react-helmet-async';
 const About = () => {
     return (
         <div className='about'>

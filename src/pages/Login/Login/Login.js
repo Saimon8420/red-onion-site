@@ -5,6 +5,8 @@ import google_logo from '../../../images/google_logo.png';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import logo from '../../../images/logo.png';
+import { Helmet } from 'react-helmet-async';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 const Login = () => {
     const [
         signInWithEmailAndPassword,
@@ -63,6 +65,10 @@ const Login = () => {
     }
     return (
         <div className='login-display'>
+            {/* <Helmet>
+                <title>Login - Red Onion Site</title>
+            </Helmet> */}
+            <PageTitle title='Login'></PageTitle>
             <img src={logo} alt="" />
             <h4>Please login</h4>
             <form onSubmit={handleSubmit}>

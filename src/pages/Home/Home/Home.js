@@ -1,11 +1,17 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Outlet } from 'react-router-dom';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 import About from '../About/About';
 import CustomLink from '../Food/CustomLink/CustomLink';
 import './Home.css';
 const Home = () => {
     return (
         <div className='home-part1'>
+            {/* <Helmet>
+                <title>Home - Red Onion Site</title>
+            </Helmet> */}
+            <PageTitle title='Home'></PageTitle>
             <div className='home-part2'>
                 <h2>Best food waiting for your belly</h2>
             </div>

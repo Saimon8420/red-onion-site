@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import logo from '../../../images/logo.png';
+import { Helmet } from 'react-helmet-async';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 const Signup = () => {
     const [
         createUserWithEmailAndPassword,
@@ -86,6 +88,10 @@ const Signup = () => {
 
     return (
         <div className='login-display'>
+            {/* <Helmet>
+                <title>Sign Up - Red Onion Site</title>
+            </Helmet> */}
+            <PageTitle title='Sign Up'></PageTitle>
             <img src={logo} alt="" />
             <h4>Please Sign-Up</h4>
             <form onSubmit={handleSubmit}>
