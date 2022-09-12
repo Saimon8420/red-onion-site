@@ -8,6 +8,8 @@ import breakfast6 from '../../../../images/breakfast/breakfast6.png';
 import './BreakFast.css';
 import Meal from '../Meal/Meal';
 import { CartContext } from '../../../../App';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BreakFast = () => {
     const [cartItem, setCartItem] = useContext(CartContext);
@@ -22,7 +24,9 @@ const BreakFast = () => {
     const handleButton = (item) => {
         const exists = cartItem.find(cart => cart.id === item.id)
         if (exists) {
-            alert('already added');
+            toast.success('Already added!', {
+                position: toast.POSITION.TOP_CENTER
+            });
         }
         else {
             const newCart = [...cartItem, item]
@@ -30,15 +34,17 @@ const BreakFast = () => {
         }
     }
     return (
-
-        <div className='food-display'>
-            {
-                breakFast.map(meal => <Meal
-                    key={meal.id}
-                    meal={meal}
-                    handleButton={handleButton}
-                ></Meal>)
-            }
+        <div>
+            <ToastContainer />
+            <div className='food-display'>
+                {
+                    breakFast.map(meal => <Meal
+                        key={meal.id}
+                        meal={meal}
+                        handleButton={handleButton}
+                    ></Meal>)
+                }
+            </div>
         </div>
     );
 };

@@ -1,0 +1,17 @@
+.display-navCart {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid red;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.display-navCart p {
+    margin: auto 0px;
+}
+
+.display-navCart img {
+    height: 50px;
+    width: 50px;
+}

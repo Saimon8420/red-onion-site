@@ -6,6 +6,7 @@ import Food from './pages/Home/Food/Food';
 import Home from './pages/Home/Home/Home';
 import Login from './pages/Login/Login/Login';
 import RequireAuth from './pages/Login/RequireAuth/RequireAuth';
+import ResetPassword from './pages/Login/ResetPassword/ResetPassword';
 import Signup from './pages/Login/SignUp/Signup';
 import Footer from './pages/Shared/Footer/Footer';
 import Header from './pages/Shared/Header/Header';
@@ -46,6 +47,8 @@ function App() {
               </RequireAuth>
             }
             ></Route>
+
+            <Route path='/reset_password' element={<ResetPassword />}></Route>
 
             <Route path='*' element={<NotFound />}></Route>
 

@@ -20,8 +20,9 @@ const Login = () => {
     const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
 
     const navigate = useNavigate();
+
     const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/home';
     if (user) {
         navigate(from, { replace: true });
     }
@@ -29,32 +30,20 @@ const Login = () => {
     const navigateRegister = () => {
         navigate('/signup');
     }
-    if (userGoogle) {
-        navigate('/home');
-    }
-    let emailRef = useRef('');
+
+    const emailRef = useRef('');
     const passwordRef = useRef('');
 
     let errorElementGoogle;
     let errorElement;
-
     const handleSubmit = event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         signInWithEmailAndPassword(email, password)
     }
-
-    const handlePasswordReset = async () => {
-        const email = emailRef.current.value;
-        if (email) {
-            alert('Check you email, for reset your password');
-            await sendPasswordResetEmail(email);
-        }
-        else {
-            alert('Enter your email on email input field, then click submit')
-        }
-        document.getElementById('input-id').value = '';
+    const handlePasswordReset = () => {
+        navigate('/reset_password');
     }
 
     if (errorGoogle) {
@@ -63,6 +52,7 @@ const Login = () => {
     if (error) {
         errorElement = <p style={{ 'background-color': 'red', color: 'white' }}> {error?.message}</p>
     }
+
     return (
         <div className='login-display'>
             {/* <Helmet>
@@ -73,7 +63,7 @@ const Login = () => {
             <h4>Please login</h4>
             <form onSubmit={handleSubmit}>
                 <label className='label-display' htmlFor="email"><p>Email</p> </label>
-                <input className='input-display' type="email" name="email" placeholder='Enter email' id="input-id" ref={emailRef} required />
+                <input className='input-display' type="email" name="email" placeholder='Enter email' id="email" ref={emailRef} required />
                 <br />
                 <label className='label-display' htmlFor="password">
                     <p>Password</p>

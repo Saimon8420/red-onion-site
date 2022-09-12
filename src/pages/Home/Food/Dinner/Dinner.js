@@ -7,6 +7,8 @@ import dinner4 from '../../../../images/dinner/dinner4.png';
 import dinner5 from '../../../../images/dinner/dinner5.png';
 import dinner6 from '../../../../images/dinner/dinner6.png';
 import Meal from '../Meal/Meal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Dinner = () => {
     const [cartItem, setCartItem] = useContext(CartContext);
@@ -22,7 +24,9 @@ const Dinner = () => {
     const handleButton = (item) => {
         const exists = cartItem.find(cart => cart.id === item.id)
         if (exists) {
-            alert('already added');
+            toast.success('Already added!', {
+                position: toast.POSITION.TOP_CENTER
+            });
         }
         else {
             const newCart = [...cartItem, item]
@@ -30,14 +34,17 @@ const Dinner = () => {
         }
     }
     return (
-        <div className='food-display'>
-            {
-                dinner.map(meal => <Meal
-                    key={meal.id}
-                    meal={meal}
-                    handleButton={handleButton}
-                ></Meal>)
-            }
+        <div>
+            <ToastContainer />
+            <div className='food-display'>
+                {
+                    dinner.map(meal => <Meal
+                        key={meal.id}
+                        meal={meal}
+                        handleButton={handleButton}
+                    ></Meal>)
+                }
+            </div>
         </div>
     );
 };

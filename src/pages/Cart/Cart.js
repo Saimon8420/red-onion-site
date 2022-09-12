@@ -1,6 +1,4 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { useContext, useRef } from 'react';
+import { useContext } from 'react';
 import { CartContext } from '../../App';
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import './Cart.css';

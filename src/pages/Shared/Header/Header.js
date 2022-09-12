@@ -8,27 +8,42 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
 import { CartContext } from '../../../App';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import NavCart from './DropDownCart/NavCart';
 const Header = () => {
-    const CurrentUser = () => {
-        const [user, loading] = useAuthState(auth);
-        return user;
-    }
+    const [user] = useAuthState(auth);
+
     const logout = () => {
         signOut(auth);
     }
     const [cartItem] = useContext(CartContext);
-    const user = CurrentUser();
+
     return (
         <div className='header-container'>
             <Link to='/'><img src={logo2} alt="" /></Link>
 
             <div className='link'>
-                <Link className='cart' to='/cart'><FontAwesomeIcon icon={faCartShopping} /><p>{cartItem?.length}</p></Link>
 
-                {user ? <p title='Click for logout' className='toggle-header' onClick={logout}>Sign Out</p> : <Link to='/login'>Login</Link>
+                <div className='cart-dropDown'>
+
+                    <Link className='cart' to='/cart'><FontAwesomeIcon icon={faCartShopping} /><p>{cartItem?.length}</p></Link>
+
+                    <NavDropdown title="Selected Item" id="nav-dropdown"
+                    >
+                        <NavDropdown.Item className='display-dropDown' >
+                            {
+                                cartItem.map(cart => <NavCart
+                                    key={cart.id}
+                                    cart={cart}></NavCart>)
+                            }
+                        </NavDropdown.Item>
+                    </NavDropdown>
+                </div>
+
+                {user ? <button className='toggle-header' onClick={logout}>Sign Out</button> : <Link className='login' to='/login'>Login</Link>
                 }
 
-                {user ? <p title='User name' className='toggle-header'>{user?.displayName}</p> : <Link to='/signup'>Sign Up</Link>
+                {user ? <p title='User name' className='toggle-header'>{user?.displayName}</p> : ''
                 }
             </div>
         </div>
