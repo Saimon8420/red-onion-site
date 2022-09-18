@@ -24,12 +24,14 @@ const Dinner = () => {
     const handleButton = (item) => {
         const exists = cartItem.find(cart => cart.id === item.id)
         if (exists) {
-            toast.success('Already added!', {
-                position: toast.POSITION.TOP_CENTER
-            });
+            // toast.success('Already added!', {
+            //     position: toast.POSITION.TOP_CENTER
+            // });
+            const existCart = cartItem.map(cart => cart.id === item.id ? { ...exists, quantity: exists.quantity + 1 } : cart);
+            setCartItem(existCart);
         }
         else {
-            const newCart = [...cartItem, item]
+            const newCart = [...cartItem, { ...item, quantity: 1 }];
             setCartItem(newCart);
         }
     }

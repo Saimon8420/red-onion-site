@@ -8,10 +8,16 @@
     border-top: 2px solid red;
     font-weight: bold;
     font-size: larger;
+    padding-top: 10px;
 }
 
 .display-cart1 h2 {
     border-bottom: 2px solid red;
     margin-top: 10px;
     font-weight: bold;
+}
+
+.ScrollStyle {
+    max-height: 350px;
+    overflow-y: scroll;
 }

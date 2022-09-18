@@ -8,7 +8,7 @@ const CartFoods = ({ cart, removeFromCart }) => {
             <div className='added-cart'>
                 <img src={cart?.img} alt="" />
                 <h4>{cart?.name.slice(0, 10)}...</h4>
-                <p>${cart?.price}</p>
+                <p>{cart?.quantity}*({cart?.price}$)={cart?.quantity * cart?.price}</p>
                 <button onClick={() => removeFromCart(cart)}>{<FontAwesomeIcon icon={faTrash} />}</button>
             </div>
         </div>

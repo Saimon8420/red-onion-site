@@ -16,20 +16,22 @@ const Lunch = () => {
     const lunch = [
         { id: 13, name: 'Healthy Meal Plan', price: 23.99, img: lunch1 },
         { id: 14, name: 'Fried Chicken Bento', price: 9.99, img: lunch2 },
-        { id: 15, name: 'Tarragon-Rubbed-Salmon', price: 6.99, img: lunch3 },
+        { id: 15, name: 'Tarragon Rubbed Salmon', price: 6.99, img: lunch3 },
         { id: 16, name: 'Indian Lunch', price: 8.99, img: lunch4 },
         { id: 17, name: 'Beef Steak', price: 15.99, img: lunch5 },
-        { id: 18, name: 'Honey-Soy-Glazed Salmon with Peppers', price: 7.99, img: lunch6 }
+        { id: 18, name: 'Honey Soy Glazed Salmon with Peppers', price: 7.99, img: lunch6 }
     ]
     const handleButton = (item) => {
         const exists = cartItem.find(cart => cart.id === item.id)
         if (exists) {
-            toast.success('Already added!', {
-                position: toast.POSITION.TOP_CENTER
-            });
+            // toast.success('Already added!', {
+            //     position: toast.POSITION.TOP_CENTER
+            // });
+            const existCart = cartItem.map(cart => cart.id === item.id ? { ...exists, quantity: exists.quantity + 1 } : cart);
+            setCartItem(existCart);
         }
         else {
-            const newCart = [...cartItem, item]
+            const newCart = [...cartItem, { ...item, quantity: 1 }];
             setCartItem(newCart);
         }
     }
