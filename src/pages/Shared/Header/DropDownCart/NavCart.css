@@ -1,6 +1,7 @@
 .display-navCart {
     display: flex;
     align-items: center;
+    justify-items: center;
     gap: 5px;
     border: 1px solid red;
     padding: 5px;
