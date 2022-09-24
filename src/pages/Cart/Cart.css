@@ -1,18 +1,20 @@
 .display-cart1 {
     font-family: 'Courier New', Courier, monospace;
-    margin: 100px auto;
+    margin-top: 100px;
+    padding: 0px 50px;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
 .display-cart1 h3 {
-    border-top: 2px solid red;
     font-weight: bold;
     font-size: larger;
     padding-top: 10px;
 }
 
 .display-cart1 h2 {
-    border-bottom: 2px solid red;
     margin-top: 10px;
     font-weight: bold;
 }
@@ -20,4 +22,112 @@
 .ScrollStyle {
     max-height: 350px;
     overflow-y: scroll;
+    background-color: white;
+    width: 50%;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.ScrollStyle h2 {
+    background-color: chocolate;
+    border-radius: 5px;
+    padding: 0px;
+}
+
+.cart-summary {
+    background-color: white;
+    width: 50%;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart-summary h2 {
+    border-bottom: 2px solid orangered;
+}
+
+.summary-display {
+    display: flex;
+    width: 100%;
+    border-radius: 20px;
+    background-color: antiquewhite;
+    padding: 5px;
+}
+
+.summary-price {
+    display: flex;
+    justify-content: space-between;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home-delivery {
+    display: none;
+}
+
+#self-collect {
+    display: none;
+}
+
+#checkout-btn {
+    border: none;
+    border-radius: 5px;
+    background-color: coral;
+    color: white;
+    display: none;
+    margin: 5px auto;
+}
+
+#checkout-btn:hover {
+    color: black;
+    background-color: orange;
+}
+
+@media only screen and (max-width:576px) {
+    .display-cart1 {
+        margin-top: 110px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+        padding: 5px;
+    }
+
+    .ScrollStyle {
+        width: 100%;
+    }
+
+    .cart-summary {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width:577px) and (max-width:960px) {
+    .display-cart1 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ScrollStyle {
+        width: min-content;
+    }
+
+    .cart-summary {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width:961px) and (max-width:2400px) {
+    .display-cart1 {
+        width: 100%;
+    }
+
+    .ScrollStyle {
+        max-height: 500px;
+    }
 }

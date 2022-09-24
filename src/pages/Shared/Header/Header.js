@@ -17,6 +17,10 @@ const Header = () => {
         signOut(auth);
     }
     const [cartItem] = useContext(CartContext);
+    let quantity = cartItem.map(cart => cart.quantity);
+
+    const initialVal = 0;
+    const totalQuantity = quantity.reduce((previousVal, currentVal) => previousVal + currentVal, initialVal);
 
     return (
         <div className='header-container'>
@@ -26,7 +30,7 @@ const Header = () => {
 
                 <div className='cart-dropDown'>
 
-                    <Link className='cart' to='/cart'><FontAwesomeIcon icon={faCartShopping} /><p>{cartItem?.length}</p></Link>
+                    <Link className='cart' to='/cart'><FontAwesomeIcon icon={faCartShopping} /><p>{totalQuantity}</p></Link>
 
                     <NavDropdown title="Selected Item" id="nav-dropdown"
                     >
