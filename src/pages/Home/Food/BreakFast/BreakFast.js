@@ -12,7 +12,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const BreakFast = () => {
-    const [cartItem, setCartItem] = useContext(CartContext);
+    const { value } = useContext(CartContext);
+    const [cartItem, setCartItem] = value;
     const breakFast = [
         { id: 1, name: 'Bagel and cream cheese', price: 6.99, img: breakfast1 },
         { id: 2, name: 'Breakfast Sandwich', price: 9.99, img: breakfast2 },

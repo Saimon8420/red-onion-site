@@ -1,24 +1,86 @@
-.home-part2 {
+/* .home-part2 {
     background-image: url('../../../images/bannerbackground.png');
     background-repeat: round;
     width: 100%;
-    height: 400px;
+    height: 600px;
     padding-top: 20px;
     margin-bottom: 10px;
     margin-top: 90px;
+} */
+
+/* .home-part2 h2 {
+    font-family: monospace;
+    width: 50%;
+    margin: 0 auto;
+    font-weight: bold;
+} */
+
+.carousel {
+    width: 100%;
+    margin: 10px auto;
+    padding: 0 20px;
 }
 
-.home-part2 h2 {
+.carousel h2 {
     font-family: monospace;
     width: 50%;
     margin: 0 auto;
     font-weight: bold;
 }
 
+.carousel p {
+    font-family: monospace;
+    font-weight: 500;
+    color: khaki;
+}
+
 .home-part1 {
-    margin-top: 0;
+    margin-top: 100px;
     text-align: center;
 }
+
+.current-time {
+    font-family: monospace;
+    font-weight: 500;
+    background-color: burlywood;
+    padding: 0 5px;
+    color: black;
+    width: 50%;
+    margin: 0 auto;
+}
+
+marquee {
+    margin: 10px 100px;
+}
+
+.open-details {
+    font-family: monospace;
+    font-weight: 500;
+    background-color: burlywood;
+    padding: 0 5px;
+    color: black;
+}
+
+/* .open-details {
+    animation-duration: 5s;
+    animation-name: slideIn;
+    animation-iteration-count: infinite;
+    animation-direction: right;
+}
+
+@keyframes slideIn {
+    0% {
+        margin-right: 50%;
+        width: 100%;
+        transform: translateX(100%)
+    }
+
+    100% {
+        margin-left: 50%;
+        width: 100%;
+        transform: translateX(-100%);
+    }
+} */
 
 .home-part1 h4 {
     font-family: monospace;
@@ -52,9 +114,13 @@
 }
 
 @media only screen and (max-width:576px) {
-    .home-part2 {
+    .carousel {
+        margin-top: 110px;
+    }
+
+    .carousel img {
+        height: 250px;
         width: 100%;
-        height: 300px;
     }
 
     .home-part1 h4 {

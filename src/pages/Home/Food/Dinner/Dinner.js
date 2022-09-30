@@ -11,7 +11,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Dinner = () => {
-    const [cartItem, setCartItem] = useContext(CartContext);
+    const { value } = useContext(CartContext);
+    const [cartItem, setCartItem] = value;
 
     const dinner = [
         { id: 7, name: 'Salmon with Grapefruit and Lentil Salad', price: 9.99, img: dinner1 },

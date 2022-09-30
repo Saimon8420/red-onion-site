@@ -1,10 +1,13 @@
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../App';
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import './Cart.css';
 import CartFoods from './CartFoods/CartFoods';
 const Cart = () => {
-    const [cartItem, setCartItem] = useContext(CartContext);
+    const { value, value2 } = useContext(CartContext);
+    const [cartItem, setCartItem] = value;
+    const [grandTotal, setGrandTotal] = value2;
 
     let subTotal = 0;
     for (let price of cartItem) {
@@ -25,12 +28,18 @@ const Cart = () => {
             document.getElementById('self').style.display = 'none';
             document.getElementById('home-delivery').style.display = 'block';
             document.getElementById('checkout-btn').style.display = 'inline';
+            setGrandTotal(withDelivery);
         }
         else {
             document.getElementById('home').style.display = 'none';
             document.getElementById('self-collect').style.display = 'block';
             document.getElementById('checkout-btn').style.display = 'inline';
+            setGrandTotal(roundOfSubTotal);
         }
+    }
+    const navigate = useNavigate();
+    const handleNavigate = () => {
+        navigate('/cart/checkOut');
     }
     return (
         <div className='display-cart1'>
@@ -83,7 +92,7 @@ const Cart = () => {
                         <h3>${roundOfSubTotal}</h3>
                     </div>
                 </div>
-                <button id='checkout-btn'>Proceed to Checkout</button>
+                <button id='checkout-btn' onClick={handleNavigate}>Proceed to Checkout</button>
             </div>
         </div>
     );

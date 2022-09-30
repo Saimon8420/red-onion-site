@@ -2,6 +2,7 @@ import { createContext, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Cart from './pages/Cart/Cart';
+import CheckOut from './pages/Cart/CheckOut/CheckOut';
 import Food from './pages/Home/Food/Food';
 import Home from './pages/Home/Home/Home';
 import Login from './pages/Login/Login/Login';
@@ -13,10 +14,12 @@ import Header from './pages/Shared/Header/Header';
 import NotFound from './pages/Shared/NotFound/NotFound';
 
 const CartContext = createContext([]);
-function App() {
+function App(props) {
   const [cartItem, setCartItem] = useState([]);
+  const [grandTotal, setGrandTotal] = useState(0);
   return (
-    <CartContext.Provider value={[cartItem, setCartItem]}>
+    <CartContext.Provider value={{ value: [cartItem, setCartItem], value2: [grandTotal, setGrandTotal] }}>
+      {props.children}
       <div className='display'>
 
         <div className='header-display'>
@@ -47,6 +50,8 @@ function App() {
               </RequireAuth>
             }
             ></Route>
+
+            <Route path='/cart/checkOut' element={<CheckOut />}></Route>
 
             <Route path='/reset_password' element={<ResetPassword />}></Route>
 

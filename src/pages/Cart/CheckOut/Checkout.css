@@ -1,0 +1,95 @@
+.checkout-container {
+    display: flex;
+    margin-top: 110px;
+    gap: 10px;
+    padding: 0px 10px;
+}
+
+.display-checkout {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid red;
+}
+
+.bill {
+    display: flex;
+    justify-content: space-between;
+    gap: 0px 20px;
+}
+
+.bill p {
+    font-family: monospace;
+    font-weight: 500;
+}
+
+.display-bill h3 {
+    font-family: monospace;
+    font-size: x-large;
+    font-weight: bold;
+    border-bottom: 1px solid red;
+}
+
+.form-display .shipping-form,
+input {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 3px;
+}
+
+.form-display .shipping-form,
+input:focus {
+    outline: none;
+}
+
+.form-display .shipping-form,
+button {
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: chocolate;
+    color: white;
+}
+
+.form-display .shipping-form,
+button:hover {
+    color: black;
+}
+
+#discount-details {
+    margin-top: 10px;
+    display: none;
+}
+
+#discount-details h3 {
+    border-bottom: none;
+}
+
+.shipping-info {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid red;
+}
+
+.shipping-info h3 {
+    font-family: monospace;
+    font-size: x-large;
+    font-weight: bold;
+    border-bottom: 1px solid red;
+}
+
+.shipping-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.shipping-form label,
+input {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+}

@@ -61,11 +61,11 @@
 }
 
 .cart-quantity p {
-    padding: 3px;
+    padding: 0px 7px;
     border-radius: 0px;
     cursor: pointer;
-    color: red;
-    background-color: aliceblue;
+    color: black;
+    background-color: gray;
 }
 
 @media only screen and (max-width:576px) {

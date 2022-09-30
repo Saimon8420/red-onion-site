@@ -11,7 +11,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Lunch = () => {
-    const [cartItem, setCartItem] = useContext(CartContext);
+    const { value } = useContext(CartContext);
+    const [cartItem, setCartItem] = value;
 
     const lunch = [
         { id: 13, name: 'Healthy Meal Plan', price: 23.99, img: lunch1 },

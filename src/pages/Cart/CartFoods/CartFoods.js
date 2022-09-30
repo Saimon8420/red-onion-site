@@ -4,7 +4,8 @@ import './CartFoods.css';
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { CartContext } from '../../../App';
 const CartFoods = ({ cart, removeFromCart }) => {
-    const [cartItem, setCartItem] = useContext(CartContext);
+    const { value } = useContext(CartContext);
+    const [cartItem, setCartItem] = value;
     const cartIncrease = (id) => {
         const exists = cartItem.find(cart => cart.id === id)
         if (exists) {
@@ -30,7 +31,7 @@ const CartFoods = ({ cart, removeFromCart }) => {
                 <div className='cart-quantity'>
                     <p onClick={() => cartIncrease(cart.id)}>+</p>
 
-                    <p style={{ 'cursor': 'context-menu', 'color': 'black' }}>{cart?.quantity}</p>
+                    <p style={{ 'cursor': 'context-menu', 'color': 'black', 'background': 'white' }}>{cart?.quantity}</p>
 
                     <p onClick={() => cartDecrease(cart.id)}>-</p>
                 </div>

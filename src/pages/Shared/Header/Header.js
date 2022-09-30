@@ -16,7 +16,9 @@ const Header = () => {
     const logout = () => {
         signOut(auth);
     }
-    const [cartItem] = useContext(CartContext);
+    const { value } = useContext(CartContext);
+    const [cartItem] = value;
+
     let quantity = cartItem.map(cart => cart.quantity);
 
     const initialVal = 0;
@@ -32,7 +34,7 @@ const Header = () => {
 
                     <Link className='cart' to='/cart'><FontAwesomeIcon icon={faCartShopping} /><p>{totalQuantity}</p></Link>
 
-                    <NavDropdown title="Selected Item" id="nav-dropdown"
+                    <NavDropdown title="Selected Food" id="nav-dropdown"
                     >
                         <NavDropdown.Item className='display-dropDown' >
                             {
