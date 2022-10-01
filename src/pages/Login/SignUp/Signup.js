@@ -115,7 +115,8 @@ const Signup = () => {
                 <hr />
                 <p style={{ 'font-weight': 'bold' }}>or</p>
             </div>
-            <div style={{ 'text-align': 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <br />
+            <div>
                 <input onChange={navigateRegister} type="checkbox" name="login" id="" />
                 <label htmlFor="login">Already have an account? Then Log-in</label>
             </div>

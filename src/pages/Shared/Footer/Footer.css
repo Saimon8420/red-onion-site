@@ -1,4 +1,67 @@
 .footer p {
     font-family: monospace;
-    font-weight: 500;
+    font-weight: 700;
+    font-size: smaller;
+}
+
+.follow-info p {
+    font-family: monospace;
+    font-weight: normal;
+    font-size: small;
+    color: lightskyblue;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.icons img {
+    height: 16px;
+    width: 16px;
+    background-color: chocolate;
+    border-radius: 2px;
+}
+
+.contact-info {
+    /* display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 50px; */
+}
+
+.contact-info p {
+    color: burlywood;
+}
+
+@media only screen and (max-width:576px) {
+    .contact-info {
+        display: flex;
+        /* grid-template-columns: repeat(1, 1fr); */
+        /* align-items: flex-start;
+        justify-content: space-evenly; */
+        gap: 20px;
+        text-align: justify;
+    }
+}
+
+@media only screen and (min-width:577px) and (max-width:960px) {
+    /* .contact-info {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 10px;
+    } */
+}
+
+@media only screen and (min-width:961px) and (max-width:2400px) {
+    .contact-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 50px;
+    }
 }

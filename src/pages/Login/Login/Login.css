@@ -79,9 +79,29 @@ p {
     display: inline;
 }
 
+/* .display-toggle {
+    display: flex;
+    background-color: aqua;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50%;
+    margin: 0 auto;
+} */
+
+/* .display-toggle,
+label {
+    display: inline;
+} */
+
+/* .display-toggle,
+input {
+    display: block;
+} */
+
 @media only screen and (max-width:576px) {
     .login-display {
-        width: 50%;
+        margin-top: 110px;
+        width: 75%;
     }
 }
 

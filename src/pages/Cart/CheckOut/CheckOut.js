@@ -31,13 +31,16 @@ const CheckOut = () => {
             <div className='display-checkout'>
                 <div className='display-bill'>
                     <h3>Bill Details</h3>
+                    <div className='bill-details'>
+                        <p>Serial</p>
+                        <p>Quantity X Name</p>
+                        <p>Price Total</p>
+                    </div>
                     {
                         cartItem.map(cart => <div className='bill' key={cart.id}>
-                            {/* <ul style={{ 'display': 'flex', 'justifyContent': 'space-between', 'alignContent': 'flex-start' }}> */}
-                            {/* <p>{indexOf(cart)}</p> */}
-                            <p>{++count})---({cart.quantity} X {cart.name})</p>
+                            <p>{++count})</p>
+                            <p>({cart.quantity} X {cart.name})</p>
                             <p>{cart.quantity * cart.price}$</p>
-                            {/* </ul> */}
                         </div>)
                     }
                     <h3>Total: {grandTotal}$</h3>

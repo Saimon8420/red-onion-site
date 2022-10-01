@@ -69,8 +69,7 @@ const Home = () => {
             <Link to={`${'launch'}`}>Lunch</Link>
             <Link to={`${'dinner'}`}>Dinner</Link> */}
             <p className='current-time'>
-                {'Current Time:- '}
-                {date.toLocaleString('en-US', {
+                Current Time:-  {date.toLocaleString('en-US', {
                     hour: 'numeric',
                     minute: 'numeric',
                     second: 'numeric',
@@ -89,6 +88,7 @@ const Home = () => {
                     {'. We are open from 8.00am to 10.00pm.'}
                 </p>
             </marquee>
+            {/* <span class="blink_text">India's Largest portal</span> */}
             {/* <p>
                 {'Today is '}
                 {date.toLocaleDateString('en-GB', {

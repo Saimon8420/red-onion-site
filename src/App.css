@@ -3,7 +3,7 @@
   margin: 0;
   position: relative;
   width: 100%;
-  margin-bottom: 70px;
+  margin-bottom: 160px;
 }
 
 .header-display {
@@ -14,15 +14,18 @@
 }
 
 .footer-display {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
   background-color: rgb(50, 50, 50);
   position: fixed;
   bottom: 0;
   width: 100%;
   color: white;
-  height: 50px;
+  height: auto;
   align-items: center;
   justify-content: center;
+  z-index: 3;
+  padding: 10px;
 }
 
 @media only screen and (max-width:576px) {
@@ -37,7 +40,7 @@
   }
 }
 
-@media only screen and (min-width:961px) and (max-width:1600px) {
+@media only screen and (min-width:961px) and (max-width:2400px) {
   .display {
     width: 100%;
   }

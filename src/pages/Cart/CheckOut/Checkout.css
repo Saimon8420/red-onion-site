@@ -6,20 +6,36 @@
 }
 
 .display-checkout {
-    width: 50%;
+    width: 100%;
     padding: 10px;
     border: 1px solid red;
+}
+
+.bill-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bill-details p {
+    font-family: monospace;
+    font-weight: 600;
+    background-color: whitesmoke;
+    padding: 0 5px;
+    border-radius: 3px;
 }
 
 .bill {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     gap: 0px 20px;
 }
 
 .bill p {
     font-family: monospace;
     font-weight: 500;
+    padding: 0 10px;
 }
 
 .display-bill h3 {
@@ -68,7 +84,7 @@ button:hover {
 }
 
 .shipping-info {
-    width: 50%;
+    width: 100%;
     padding: 10px;
     border: 1px solid red;
 }
@@ -90,6 +106,38 @@ button:hover {
 .shipping-form label,
 input {
     display: block;
-    width: 75%;
+    width: 85%;
     margin: 0 auto;
+    font-family: monospace;
+    font-weight: 500;
+}
+
+@media only screen and (max-width:576px) {
+    .checkout-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin-top: 110px;
+        gap: 10px;
+        padding: 0px 10px;
+    }
+}
+
+@media only screen and (min-width:577px) and (max-width:960px) {
+    .checkout-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin-top: 110px;
+        gap: 10px;
+        padding: 0px 10px;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width:961px) and (max-width:2400px) {
+    .checkout-container {
+        display: flex;
+        margin-top: 110px;
+        gap: 10px;
+        padding: 0px 10px;
+    }
 }

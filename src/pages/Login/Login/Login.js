@@ -84,11 +84,9 @@ const Login = () => {
             {errorElementGoogle}
             <br />
             <br />
-            <div style={{
-                'text-align': 'center', display: 'flex', alignItems: 'center', justifyContent: 'center'
-            }}>
+            <div className='display-toggle'>
                 <input onChange={navigateRegister} type="checkbox" name="login" id="" />
-                <label htmlFor="login">Haven't any account? Then Sing-up</label>
+                <label style={{ 'display': 'block' }} htmlFor="login">Haven't any account? Then Sing-up</label>
             </div>
         </div>
     );
